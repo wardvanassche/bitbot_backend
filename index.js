@@ -7,7 +7,7 @@ import fetch from "node-fetch";
 const app = express()
 
 app.use(cors({
-    origin: ['https://bitbot-server.vercel.app', 'https://wardvanassche.github.io/bitbot'],
+    origin: ['https://bitbot-server.vercel.app', 'https://wardvanassche.github.io'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
