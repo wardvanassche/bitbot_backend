@@ -5,7 +5,13 @@ import {AIMessage, HumanMessage, SystemMessage} from "@langchain/core/messages"
 import fetch from "node-fetch";
 
 const app = express()
-app.use(cors())
+
+app.use(cors({
+    origin: ['https://bitbot-server.vercel.app', 'https://wardvanassche.github.io/bitbot'],
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
