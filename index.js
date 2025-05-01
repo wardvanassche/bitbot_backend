@@ -37,7 +37,8 @@ app.post("/", async (req, res) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': COINWATCH_API_KEY
+                    'x-api-key': COINWATCH_API_KEY,
+                    'Access-Control-Allow-Origin': 'https://wardvanassche.github.io/bitbot/',
                 },
                 body: JSON.stringify({
                     codes: ['BTC', 'ETH'],
