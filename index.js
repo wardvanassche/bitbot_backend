@@ -8,7 +8,7 @@ import serverless from "serverless-http"
 const app = express()
 
 app.use(cors({
-    origin: ['https://bitbot-server.vercel.app', 'https://wardvanassche.github.io'],
+    origin: "https://wardvanassche.github.io/bitbot/", // ✅ your Vite frontend runs here on Github pages
     methods: ['GET', 'POST'],
     credentials: true
 }));
@@ -83,4 +83,8 @@ app.post("/", async (req, res) => {
     }
 })
 
-export default serverless(app)
+// export default serverless(app)
+app.listen(3000, () => {    
+    console.log("Server is running on port 3000")
+}
+)
