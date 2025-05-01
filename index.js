@@ -2,7 +2,8 @@ import {AzureChatOpenAI} from "@langchain/openai"
 import express, {json} from "express"
 import cors from "cors"
 import {AIMessage, HumanMessage, SystemMessage} from "@langchain/core/messages"
-import fetch from "node-fetch";
+import fetch from "node-fetch"
+import serverless from "serverless-http"
 
 const app = express()
 
@@ -78,11 +79,8 @@ app.post("/", async (req, res) => {
 
     } catch (error) {
         console.error("Error processing request:", error)
-        res.status(500).send("Internal Server Error")
+        res.status(500).send(`Internal Server Error: ${error.message}`)
     }
 })
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000")
-}
-)
+export default serverless(app)
